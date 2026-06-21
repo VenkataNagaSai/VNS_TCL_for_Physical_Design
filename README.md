@@ -90,7 +90,7 @@ if {$slack < 0} {
 | Operator | Description |
 | -------- | ----------- |
 | &&       | AND         |
-| ||       | OR          |
+| \|\|     | OR          |
 | !        | NOT         |
 
 ```tcl
@@ -113,6 +113,11 @@ if {$cell_type eq "BUF"} {
     puts "Buffer found"
 }
 ```
+Preferred Over:
+
+```tcl
+if {$cell_type == "BUF"} ;# Avoid
+```
 
 ---
 
@@ -133,6 +138,8 @@ if {$pin_name ni {"clk" "rst"}} {
 ---
 
 ## Ternary Operator
+
+Useful for compact conditions.
 
 ```tcl
 set result [expr {$slack >= 0 ? "PASS" : "FAIL"}]

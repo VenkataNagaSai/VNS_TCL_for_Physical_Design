@@ -61,6 +61,7 @@ Common applications:
 ```tcl
 set width 10
 set height 20
+
 set area [expr {$width * $height}]
 puts $area
 ```
@@ -126,11 +127,14 @@ if {$cell_type == "BUF"} ;# Avoid
 
 ## Membership Operators
 
+### in
+
 ```tcl
 if {$pin_name in {"clk" "rst" "scan_en"}} {
     puts "Special pin"
 }
 ```
+### ni
 
 ```tcl
 if {$pin_name ni {"clk" "rst"}} {
@@ -145,7 +149,7 @@ if {$pin_name ni {"clk" "rst"}} {
 Useful for compact conditions.
 
 ```tcl
-set result [expr {$slack >= 0 ? "PASS" : "FAIL"}]
+set result [expr {$slack >= 0 ? "CLEAN" : "VIOLATION"}]
 ```
 
 ---
@@ -405,7 +409,7 @@ Used to extract slack, WNS, TNS, cell names from reports.
 set count [llength $cells]
 ```
 
-The command inside [] executes first.
+The command inside [ ] executes first.
 
 ---
 
@@ -656,7 +660,7 @@ close $fp
 
 ---
 
-# Most Important Tcl Commands
+# Most Important Tcl Commands Used in PD
 
 * set
 * puts
@@ -692,10 +696,10 @@ close $fp
 
 # My Scripts
 
-1. Prime Numbers
+1. Prime Numbers (2-100)
 2. Factorial Using Proc
 3. Fibonacci Series
-4. Palindrome
+4. Palindrome Check
 5. Reverse String
 6. Even Numbers
 7. Odd Numbers

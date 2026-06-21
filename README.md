@@ -1,7 +1,5 @@
 # TCL_for_Physical_Design
 
-# Tcl for VLSI Physical Design
-
 ---
 
 # Table of Contents
@@ -15,9 +13,9 @@
 * [Procedures](#procedures)
 * [File Handling](#file-handling)
 * [Regular Expressions](#regular-expressions)
-* [Some Important Scripts](#interview-programming-questions)
-* [File Handling Scripts](#file-handling-interview-questions)
-* [List and Array Scripts](#list-and-array-interview-questions)
+* [Important TCL Foundational Scripts](#important-tcl-foundational-scripts)
+* [File Handling Scripts](#file-handling-scripts)
+* [List and Array Scripts](#list-and-array-scripts)
 * [Report Parsing](#report-parsing)
 * [Physical Design Tool Commands](#physical-design-tool-commands)
 * [Physical Design Tcl Scripts](#physical-design-tcl-scripts)
@@ -89,11 +87,11 @@ if {$slack < 0} {
 
 ## Logical Operators
 
-| Operator | Description |   |    |
-| -------- | ----------- | - | -- |
-| &&       | AND         |   |    |
-|          |             |   | OR |
-| !        | NOT         |   |    |
+| Operator | Description |
+| -------- | ----------- |
+| &&       | AND         |
+| ||       | OR          |
+| !        | NOT         |
 
 ```tcl
 if {$setup_slack < 0 && $hold_slack < 0} {
@@ -334,7 +332,7 @@ if {[regexp {VIOLATED} $line]} {
 
 ---
 
-# Interview Programming Questions
+# Important TCL Foundational Scripts
 
 ## Even Numbers
 

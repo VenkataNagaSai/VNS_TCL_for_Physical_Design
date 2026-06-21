@@ -1,12 +1,10 @@
 # TCL for Physical Design
 
----
-
 # Table of Contents
 
 * [Introduction](#introduction)
 * [Tcl Operators](#tcl-operators)
-* [Important Tcl Commands](#important-tcl-commands)
+* [Important Concepts in Tcl](#important-concepts-in-tcl)
 * [Lists](#lists)
 * [Arrays](#arrays)
 * [String Operations](#string-operations)
@@ -152,7 +150,7 @@ set result [expr {$slack >= 0 ? "PASS" : "FAIL"}]
 
 ---
 
-# Important Topics in Tcl
+# Important Concepts in Tcl
 
 ## Variable Handling
 

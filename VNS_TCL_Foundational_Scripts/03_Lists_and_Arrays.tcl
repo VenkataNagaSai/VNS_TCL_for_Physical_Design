@@ -63,7 +63,3 @@ foreach item $list1 {
         puts $item
     }
 }
-
-
-
-

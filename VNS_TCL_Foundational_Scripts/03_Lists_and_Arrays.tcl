@@ -1,4 +1,4 @@
-## Tier-3: Lists and Arrays
+## Lists and Arrays
 
 # ---------------------------------------------
 # Sort Numbers in a List

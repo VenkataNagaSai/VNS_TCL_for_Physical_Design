@@ -1,4 +1,4 @@
-# Tier-1: Programming Logic
+# Programming Logic
 
 # ---------------------------------------------
 # Print Even Numbers (1-100)

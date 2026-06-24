@@ -1,5 +1,5 @@
 
-## Tier-2: File Handling
+## File Handling
 
 # ---------------------------------------------
 # Count Number of Lines in a File

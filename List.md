@@ -12,11 +12,6 @@
 - [8. List Replace](#8-list-replace)
 - [9. List Set](#9-list-set)
 - [10. List Sort](#10-list-sort)
-  - [10a. lsort ](#10a-lsort-)
-  - [10b. lsort -dictionary](#10b-lsort-dictionary)
-  - [10c. lsort -integer](#10c-lsort-integer)
-  - [10d. lsort -real](#10d-lsort-real)
-  - [10e. lsort -unique](#10e-lsort-unique)
 - [11. List Split](#11-list-split)
 
 ## 1. List Append
@@ -26,17 +21,14 @@ Appends elements at the end (change is made in the parent varibale, so we should
 
 #### Example
 ```tcl
-
 set a [list I am ASIC Physical Design]
 lappend a Engineer
 puts $a
-
 ```
 
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
-
 ```
 
 ## 2. List Assign
@@ -52,7 +44,6 @@ puts $e0
 puts $e1
 puts $e2
 puts $e3
-
 ```
 
 #### Output
@@ -61,7 +52,6 @@ VLSI
 ASIC
 Physical
 Design
-
 ```
 
 ## 3. List Concat
@@ -81,7 +71,6 @@ puts $c
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
-
 ```
 
 ## 4. List Index
@@ -94,13 +83,11 @@ Gives the element at the particular index.
 set a [list ASIC Physical Design Engineer]
 set b [list $a 2]
 puts $b
-
 ```
 
 #### Output
 ```text
 Design
-
 ```
 
 ## 5. List Insert
@@ -116,14 +103,12 @@ puts $b
 
 set c [linsert $a 2 a very good]
 puts $c
-
 ```
 
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
 I am a very good ASIC Physical Design Engineer
-
 ```
 
 ## 6. List Length
@@ -140,7 +125,6 @@ puts $b
 set a [list I_am_an_ASIC_Physical_Design_Engineer]
 set b [llength $a]
 puts $b
-
 ```
 
 #### Output
@@ -159,13 +143,11 @@ It will return one or moore adjacent elements from a list depending on the speci
 set a [list I am an ASIC Physical Design Engineer]
 set b [lrange $a 3 5]
 puts $b
-
 ```
 
 #### Output
 ```text
 ASIC Physical Design
-
 ```
 
 ## 8. List Replace
@@ -178,13 +160,11 @@ Replaces elements in the index range with the new elements specified.
 set a [list I am an ASIC RTL Verification Engineer]
 set b [lreplace $a 3 4 Physical Design]
 puts $b
-
 ```
 
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
-
 ```
 
 ## 9. List Set
@@ -202,7 +182,6 @@ puts $b
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
-
 ```
 
 ## 10. List Sort
@@ -220,13 +199,11 @@ Sorts according to ASCII value
 set a [list I am an ASIC Physical Desin Engineer]
 set b [lsort $a]
 puts $b
-
 ```
 
 #### Output
 ```text
 ASIC Design Engineer I Physical am an
-
 ```
 
 #### Example
@@ -234,13 +211,11 @@ ASIC Design Engineer I Physical am an
 set c [list 126 12345 223 45]
 set d [lsort $c]
 puts $d
-
 ```
 
 #### Output
 ```text
-45. 126 223 12345
-
+45 126 223 12345
 ```
 
 ### 10b. lsort -dictionary
@@ -253,13 +228,11 @@ Sorts according to Alphabetical value
 set a [list I am an ASIC Physical Design Engineer]
 set b [lsort -dictionary $a]
 puts $b
-
 ```
 
 #### Output
 ```text
 am an ASIC Design Engineer I Physical
-
 ```
 
 ### 10c. lsort -integer
@@ -272,13 +245,11 @@ Sorts according to Numerical value
 set c [list 126 12345 223 45]
 set d [list -integer $c]
 puts $d
-
 ```
 
 #### Output
 ```text
-45. 126 223 12345
-
+45 126 223 12345
 ```
 
 ### 10d. lsort -real
@@ -291,13 +262,11 @@ Sorts decimal numbers according to Numerical value
 set c [list 2.75 1.1 67.34 567.12]
 set d [lsort -real $c]
 puts $d
-
 ```
 
 #### Output
 ```text
-1. 1 2.75 67.34 567.12
-
+1.1 2.75 67.34 567.12
 ```
 
 ### 10e. lsort -unique
@@ -310,13 +279,11 @@ Sorts according to Numerical value and displays unique occurences
 set c [list 126 12345 223 45 126 67 45]
 set d [lsort -integer -unique $c]
 puts $d
-
 ```
 
 #### Output
 ```text
-45. 67 126 223 445 12345
-
+45 67 126 223 445 12345
 ```
 
 ## 11. List Split
@@ -328,11 +295,9 @@ Splits into elements of a list based on a particular reference character
 set a [list I_am_an_ASIC_Physical_Design_Engineer]
 set b [split $a "-"]
 puts $b
-
 ```
 
 #### Output
 ```text
 I am an ASIC Physical Design Engineer
-
 ```

@@ -1,27 +1,25 @@
 # String in TCL
 
-## Table of Contents
+# Table of Contents
 
-**[String Operators](#string-operators)**
-
-- [1. String Append](#1-string-append)
-- [2. String Compare](#2-string-compare)
-- [3. String First](#3-string-first)
-- [4. String Index](#4-string-index)
-- [5. String Last](#5-string-last)
-- [6. String Left Trim](#6-string-left-trim)
-- [7. String Length](#7-string-length)
-- [8. String Match](#8-string-match)
-- [9. String Range](#9-string-range)
-- [10. String Reverse](#10-string-reverse)
-- [11. String Right Trim](#11-string-right-trim)
-- [12. String Tolower](#12-string-tolower)
-- [13. String Toupper](#13-string-toupper)
-- [14. String Trim](#14-string-trim)
-- [15. String Wordend](#15-string-wordend)
-- [16. String Wordstart](#16-string-wordstart)
-
-**[Special Characters in the String](#special-characters-in-the-string)**
+- [String Operators](#string-operators)
+  - [1. String Append](#1-string-append)
+  - [2. String Compare](#2-string-compare)
+  - [3. String First](#3-string-first)
+  - [4. String Index](#4-string-index)
+  - [5. String Last](#5-string-last)
+  - [6. String Left Trim](#6-string-left-trim)
+  - [7. String Length](#7-string-length)
+  - [8. String Match](#8-string-match)
+  - [9. String Range](#9-string-range)
+  - [10. String Reverse](#10-string-reverse)
+  - [11. String Right Trim](#11-string-right-trim)
+  - [12. String Tolower](#12-string-tolower)
+  - [13. String Toupper](#13-string-toupper)
+  - [14. String Trim](#14-string-trim)
+  - [15. String Wordend](#15-string-wordend)
+  - [16. String Wordstart](#16-string-wordstart)
+- [Special Characters in the String](#special-characters-in-the-string)
 
 ## String Operators
 

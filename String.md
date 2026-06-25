@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-## [String Operators](#string-operators)
+**[String Operators](#string-operators)**
 
 - [1. String Append](#1-string-append)
 - [2. String Compare](#2-string-compare)
@@ -21,9 +21,8 @@
 - [15. String Wordend](#15-string-wordend)
 - [16. String Wordstart](#16-string-wordstart)
 
-## [Special Characters in the String](#special-characters-in-the-string)
+**[Special Characters in the String](#special-characters-in-the-string)**
 
----
 ## String Operators
 
 ### 1. String Append

@@ -2,23 +2,34 @@
 
 # Table of Contents
 
-* [TCL Introduction](#tcl-introduction)
-* [Tcl Operators](#tcl-operators)
-* [Important Concepts in Tcl](#important-concepts-in-tcl)
-* [Lists](#lists)
-* [Arrays](#arrays)
-* [String Operations](#string-operations)
-* [Procedures](#procedures)
-* [File Handling](#file-handling)
-* [Regular Expressions](#regular-expressions)
-* [Important TCL Foundational Scripts](#important-tcl-foundational-scripts)
-* [File Handling Scripts](#file-handling-scripts)
-* [List and Array Scripts](#list-and-array-scripts)
-* [Report Parsing](#report-parsing)
-* [Physical Design Tool Commands](#physical-design-tool-commands)
-* [Physical Design Tcl Scripts](#physical-design-tcl-scripts)
-* [ECO Automation Scripts](#eco-automation-scripts)
-* [Most Important Tcl Commands](#most-important-tcl-commands)
+- [TCL Introduction](#tcl-introduction)
+- [Variable Handling](#variable-handling)
+- [Tcl Operators](#tcl-operators)
+- [Special variables](#special-variables)
+- [Control Structure](#data-structure)
+  - [Conditional Statement](#conditional-statement)
+    - [if, elseif, else](#if-elseif-else)
+  - [Loop](#loop)
+    - [for loop](#for-loop)
+    - [while loop](#while-loop)
+    - [foreach loop](#foreach-loop)
+  - [Break](#break)
+  - [Continue](#continue)
+- [Procedure (Function)](#procedure-function)
+- [Data Structure](#data-structure)
+  - [String](#string)
+  - [List](#list)
+  - [Array](#array)
+- [File Handling](#file-handling)
+- [Regular Expressions](#regular-expressions)
+- [Report Parsing](#report-parsing)
+- [Important TCL Foundational Scripts](#important-tcl-foundational-scripts)
+- [File Handling Scripts](#file-handling-scripts)
+- [List and Array Scripts](#list-and-array-scripts)
+- [Physical Design Tool Commands](#physical-design-tool-commands)
+- [Physical Design Tcl Scripts](#physical-design-tcl-scripts)
+- [ECO Automation Scripts](#eco-automation-scripts)
+- [Most Important Tcl Commands](#most-important-tcl-commands)
 
 # TCL Introduction
 
@@ -41,7 +52,19 @@ Common applications:
 * Design sanity checks
 * Batch automation
 
+# Variable Handling
+
+Used for: Storing slack, utilization, cell names, file names, etc.
+
+```tcl
+set var 10
+puts $var
+unset var
+```
+
 # Tcl Operators
+
+Used for: Area calculations, percentages, coordinates.
 
 ## Arithmetic Operators
 
@@ -137,30 +160,11 @@ Useful for compact conditions.
 ```tcl
 set result [expr {$slack >= 0 ? "CLEAN" : "VIOLATION"}]
 ```
+# Control Structure
 
-# Important Concepts in Tcl
+## Conditional Statement
 
-## Variable Handling
-
-```tcl
-set var 10
-puts $var
-unset var
-```
-
-Used for: Storing slack, utilization, cell names, file names, etc.
-
-## Arithmetic Operations
-
-```tcl
-set area [expr {$width * $height}]
-set rem [expr {$num % 2}]
-```
-
-Used for: Area calculations, percentages, coordinates.
-
-## Conditional Statements
-
+### if, elseif, else
 ```tcl
 if {$slack < 0} {
     puts "Violation"
@@ -172,7 +176,7 @@ if {$slack < 0} {
 ```
 Used for: Timing checks, report filtering.
 
-## Loops
+## Loop
 
 ### for Loop
 
@@ -190,7 +194,9 @@ while {$count > 0} {
 }
 ```
 
-### foreach Loop (Most Important)
+### foreach Loop 
+
+Most Important as it is used extensively in PD scripts.
 
 ```tcl
 foreach cell $cell_list {
@@ -198,9 +204,11 @@ foreach cell $cell_list {
 }
 ```
 
-Used extensively in PD tools.
+# Data Structure
 
-## List Operations
+## List
+
+Very heavily used in PD scripts.
 
 ### Create List
 
@@ -256,9 +264,9 @@ lreverse $list
 lsort -unique $list
 ```
 
-Very heavily used in PD scripts.
+## String
 
-## String Operations
+Used for report parsing and object filtering.
 
 ```tcl
 string length $name
@@ -274,8 +282,6 @@ if {[string match *clk* $pin]} {
 }
 ```
 
-Used for report parsing and object filtering.
-
 ## Procedures (Functions)
 
 ```tcl
@@ -288,7 +294,9 @@ puts [add 10 20]
 
 Used to build reusable utilities.
 
-## Arrays (Associative Arrays)
+## Array 
+
+Also specified as Associative Arrays, used for storing timing data.
 
 ```tcl
 array set slack {
@@ -298,8 +306,6 @@ array set slack {
 
 puts $slack(path1)
 ```
-
-Used for storing timing data.
 
 ## File Handling
 

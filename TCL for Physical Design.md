@@ -5,7 +5,7 @@
 - [TCL Introduction](#tcl-introduction)
 - [Variable Handling](#variable-handling)
 - [Tcl Operators](#tcl-operators)
-- [Special variables](#special-variables)
+- [Special Variables](#special-variables)
 - [Control Structure](#data-structure)
   - [Conditional Statement](#conditional-statement)
     - [if, elseif, else](#if-elseif-else)
@@ -21,17 +21,14 @@
   - [List](#list)
   - [Array](#array)
 - [File Handling](#file-handling)
-- [Regular Expressions](#regular-expressions)
+- [Regular Expression](#regular-expression)
 - [Report Parsing](#report-parsing)
-- [Important TCL Foundational Scripts](#important-tcl-foundational-scripts)
-- [File Handling Scripts](#file-handling-scripts)
-- [List and Array Scripts](#list-and-array-scripts)
 - [Physical Design Tool Commands](#physical-design-tool-commands)
 - [Physical Design Tcl Scripts](#physical-design-tcl-scripts)
 - [ECO Automation Scripts](#eco-automation-scripts)
-- [Most Important Tcl Commands](#most-important-tcl-commands)
+- [Most Important Tcl Commands Used in PD](#most-important-tcl-commands)
 
-# TCL Introduction
+## TCL Introduction
 
 Tcl is heavily used in:
 
@@ -52,7 +49,7 @@ Common applications:
 * Design sanity checks
 * Batch automation
 
-# Variable Handling
+## Variable Handling
 
 Used for: Storing slack, utilization, cell names, file names, etc.
 
@@ -62,11 +59,19 @@ puts $var
 unset var
 ```
 
-# Tcl Operators
+### Command Substitution
+
+```tcl
+set count [llength $cells]
+```
+
+The command inside [ ] executes first.
+
+## Tcl Operators
 
 Used for: Area calculations, percentages, coordinates.
 
-## Arithmetic Operators
+### Arithmetic Operators
 
 | Operator | Description    | Example |
 | -------- | -------------- | ------- |
@@ -85,7 +90,7 @@ set area [expr {$width * $height}]
 puts $area
 ```
 
-## Relational Operators
+### Relational Operators
 
 Used in if, while, and filtering conditions.
 
@@ -104,7 +109,7 @@ if {$slack < 0} {
 }
 ```
 
-## Logical Operators
+### Logical Operators
 
 | Operator | Description |
 | -------- | ----------- |
@@ -118,7 +123,7 @@ if {$setup_slack < 0 && $hold_slack < 0} {
 }
 ```
 
-## String Comparision Operators
+### String Comparision Operators
 
 | Operator | Description |
 | -------- | ----------- |
@@ -136,7 +141,7 @@ Preferred Over:
 if {$cell_type == "BUF"} ;# Avoid
 ```
 
-## Membership Operators
+### Membership Operators
 
 ### in
 
@@ -153,18 +158,21 @@ if {$pin_name ni {"clk" "rst"}} {
 }
 ```
 
-## Ternary Operator
+### Ternary Operator
 
 Useful for compact conditions.
 
 ```tcl
 set result [expr {$slack >= 0 ? "CLEAN" : "VIOLATION"}]
 ```
-# Control Structure
+## Special Variables
 
-## Conditional Statement
 
-### if, elseif, else
+## Control Structure
+
+### Conditional Statement
+
+#### if, elseif, else
 ```tcl
 if {$slack < 0} {
     puts "Violation"
@@ -176,9 +184,9 @@ if {$slack < 0} {
 ```
 Used for: Timing checks, report filtering.
 
-## Loop
+### Loop
 
-### for Loop
+#### for Loop
 
 ```tcl
 for {set i 1} {$i <= 10} {incr i} {
@@ -186,7 +194,7 @@ for {set i 1} {$i <= 10} {incr i} {
 }
 ```
 
-### while Loop
+#### while Loop
 
 ```tcl
 while {$count > 0} {
@@ -194,7 +202,7 @@ while {$count > 0} {
 }
 ```
 
-### foreach Loop 
+#### foreach Loop 
 
 Most Important as it is used extensively in PD scripts.
 
@@ -204,67 +212,9 @@ foreach cell $cell_list {
 }
 ```
 
-# Data Structure
+## Data Structure
 
-## List
-
-Very heavily used in PD scripts.
-
-### Create List
-
-```tcl
-set cells {U1 U2 U3}
-```
-
-### Length
-
-```tcl
-llength $cells
-```
-
-### Access Element
-
-```tcl
-lindex $cells 0
-```
-
-### Append
-
-```tcl
-lappend cells U4
-```
-
-### Search
-
-```tcl
-lsearch $cells U2
-```
-
-### Sort
-
-```tcl
-lsort $cells
-```
-
-### Sort Integer
-
-```tcl
-lsort -integer $nums
-```
-
-### Reverse
-
-```tcl
-lreverse $list
-```
-
-### Remove Duplicates
-
-```tcl
-lsort -unique $list
-```
-
-## String
+### String
 
 Used for report parsing and object filtering.
 
@@ -274,7 +224,7 @@ string compare $a $b
 string match *CLK* $pin
 string first CLK $pin
 ```
-### Example
+#### Example
 
 ```tcl
 if {[string match *clk* $pin]} {
@@ -282,7 +232,65 @@ if {[string match *clk* $pin]} {
 }
 ```
 
-## Procedures (Functions)
+### List
+
+Very heavily used in PD scripts.
+
+#### Create List
+
+```tcl
+set cells {U1 U2 U3}
+```
+
+#### Length
+
+```tcl
+llength $cells
+```
+
+#### Access Element
+
+```tcl
+lindex $cells 0
+```
+
+#### Append
+
+```tcl
+lappend cells U4
+```
+
+#### Search
+
+```tcl
+lsearch $cells U2
+```
+
+#### Sort
+
+```tcl
+lsort $cells
+```
+
+#### Sort Integer
+
+```tcl
+lsort -integer $nums
+```
+
+#### Reverse
+
+```tcl
+lreverse $list
+```
+
+#### Remove Duplicates
+
+```tcl
+lsort -unique $list
+```
+
+### Procedures (Functions)
 
 ```tcl
 proc add {a b} {
@@ -294,7 +302,7 @@ puts [add 10 20]
 
 Used to build reusable utilities.
 
-## Array 
+### Array 
 
 Also specified as Associative Arrays, used for storing timing data.
 
@@ -354,7 +362,7 @@ close $in
 close $out
 ```
 
-## Regular Expressions
+## Regular Expression
 
 ### Extract Slack
 
@@ -372,54 +380,47 @@ if {[regexp {VIOLATED} $line]} {
 
 Used to extract slack, WNS, TNS, cell names from reports.
 
-## Command Substitution
 
-```tcl
-set count [llength $cells]
-```
+## Report Parsing
 
-The command inside [ ] executes first.
-
-# Report Parsing
-
-## Extract Slack
+### Extract Slack
 
 ```tcl
 regexp {slack.*(-?\d+\.\d+)} $line match slack
 ```
 
-## Extract WNS
+### Extract WNS
 
 ```tcl
 regexp {WNS:\s*(-?\d+\.\d+)} $line match wns
 ```
 
-## Extract TNS
+### Extract TNS
 
 ```tcl
 regexp {TNS:\s*(-?\d+\.\d+)} $line match tns
 ```
 
-## Extract Startpoint
+### Extract Startpoint
 
 ```tcl
 regexp {Startpoint:\s+(\S+)} $line match start
 ```
 
-## Extract Endpoint
+### Extract Endpoint
 
 ```tcl
 regexp {Endpoint:\s+(\S+)} $line match end
 ```
 
-## Count Violations
+### Count Violations
 
 ```tcl
 if {[regexp {VIOLATED} $line]} {
     incr count
 }
 ```
-# Physical Design Tool Commands
+## Physical Design Tool Commands
 
 ```tcl
 get_cells *
@@ -450,16 +451,16 @@ get_attribute $cell area
 get_cells -filter "is_sequential==true"
 ```
 
-# Physical Design Tcl Scripts
+## Physical Design Tcl Scripts
 
-## Count Cells
+### Count Cells
 
 ```tcl
 set count [sizeof_collection [get_cells *]]
 puts $count
 ```
 
-## Sequential Cells
+### Sequential Cells
 
 ```tcl
 foreach_in_collection cell \
@@ -469,7 +470,7 @@ foreach_in_collection cell \
 }
 ```
 
-## High Fanout Nets
+### High Fanout Nets
 
 ```tcl
 foreach_in_collection net [get_nets *] {
@@ -483,7 +484,7 @@ foreach_in_collection net [get_nets *] {
 }
 ```
 
-## Floating Nets
+### Floating Nets
 
 ```tcl
 foreach_in_collection net [get_nets *] {
@@ -494,7 +495,7 @@ foreach_in_collection net [get_nets *] {
 }
 ```
 
-## Unconnected Ports
+### Unconnected Ports
 
 ```tcl
 foreach_in_collection port [get_ports *] {
@@ -505,9 +506,9 @@ foreach_in_collection port [get_ports *] {
 }
 ```
 
-# ECO Automation Scripts
+## ECO Automation Scripts
 
-## Generate ECO Tcl
+### Generate ECO Tcl
 
 ```tcl
 set fp [open eco.tcl w]
@@ -517,7 +518,7 @@ puts $fp "size_cell U123 BUF_X4"
 close $fp
 ```
 
-## Generate Buffer ECO
+### Generate Buffer ECO
 
 ```tcl
 set fp [open eco_buf.tcl w]
@@ -535,7 +536,7 @@ foreach_in_collection net [get_nets *] {
 close $fp
 ```
 
-# Most Important Tcl Commands Used in PD
+## Most Important Tcl Commands Used in PD
 
 * set
 * puts
@@ -567,7 +568,7 @@ close $fp
 * all_fanout
 * all_connected
 
-# My Scripts
+## My Scripts
 
 1. Prime Numbers (2-100)
 2. Factorial Using Proc

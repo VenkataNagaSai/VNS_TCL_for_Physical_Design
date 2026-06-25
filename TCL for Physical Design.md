@@ -2,7 +2,7 @@
 
 # Table of Contents
 
-* [Introduction](#introduction)
+* [TCL Introduction](#tcl-introduction)
 * [Tcl Operators](#tcl-operators)
 * [Important Concepts in Tcl](#important-concepts-in-tcl)
 * [Lists](#lists)
@@ -20,9 +20,7 @@
 * [ECO Automation Scripts](#eco-automation-scripts)
 * [Most Important Tcl Commands](#most-important-tcl-commands)
 
----
-
-# Introduction
+# TCL Introduction
 
 Tcl is heavily used in:
 
@@ -42,8 +40,6 @@ Common applications:
 * Routing checks
 * Design sanity checks
 * Batch automation
-
----
 
 # Tcl Operators
 
@@ -66,8 +62,6 @@ set area [expr {$width * $height}]
 puts $area
 ```
 
----
-
 ## Relational Operators
 
 Used in if, while, and filtering conditions.
@@ -87,8 +81,6 @@ if {$slack < 0} {
 }
 ```
 
----
-
 ## Logical Operators
 
 | Operator | Description |
@@ -102,8 +94,6 @@ if {$setup_slack < 0 && $hold_slack < 0} {
     puts "Both setup and hold violations exist"
 }
 ```
-
----
 
 ## String Comparision Operators
 
@@ -123,8 +113,6 @@ Preferred Over:
 if {$cell_type == "BUF"} ;# Avoid
 ```
 
----
-
 ## Membership Operators
 
 ### in
@@ -142,8 +130,6 @@ if {$pin_name ni {"clk" "rst"}} {
 }
 ```
 
----
-
 ## Ternary Operator
 
 Useful for compact conditions.
@@ -151,8 +137,6 @@ Useful for compact conditions.
 ```tcl
 set result [expr {$slack >= 0 ? "CLEAN" : "VIOLATION"}]
 ```
-
----
 
 # Important Concepts in Tcl
 
@@ -166,8 +150,6 @@ unset var
 
 Used for: Storing slack, utilization, cell names, file names, etc.
 
----
-
 ## Arithmetic Operations
 
 ```tcl
@@ -176,8 +158,6 @@ set rem [expr {$num % 2}]
 ```
 
 Used for: Area calculations, percentages, coordinates.
-
----
 
 ## Conditional Statements
 
@@ -190,10 +170,7 @@ if {$slack < 0} {
     puts "Clean"
 }
 ```
-
 Used for: Timing checks, report filtering.
-
----
 
 ## Loops
 
@@ -222,8 +199,6 @@ foreach cell $cell_list {
 ```
 
 Used extensively in PD tools.
-
----
 
 ## List Operations
 
@@ -283,8 +258,6 @@ lsort -unique $list
 
 Very heavily used in PD scripts.
 
----
-
 ## String Operations
 
 ```tcl
@@ -303,8 +276,6 @@ if {[string match *clk* $pin]} {
 
 Used for report parsing and object filtering.
 
----
-
 ## Procedures (Functions)
 
 ```tcl
@@ -316,8 +287,6 @@ puts [add 10 20]
 ```
 
 Used to build reusable utilities.
-
----
 
 ## Arrays (Associative Arrays)
 
@@ -331,8 +300,6 @@ puts $slack(path1)
 ```
 
 Used for storing timing data.
-
----
 
 ## File Handling
 
@@ -381,8 +348,6 @@ close $in
 close $out
 ```
 
----
-
 ## Regular Expressions
 
 ### Extract Slack
@@ -401,8 +366,6 @@ if {[regexp {VIOLATED} $line]} {
 
 Used to extract slack, WNS, TNS, cell names from reports.
 
----
-
 ## Command Substitution
 
 ```tcl
@@ -410,8 +373,6 @@ set count [llength $cells]
 ```
 
 The command inside [ ] executes first.
-
----
 
 # Report Parsing
 
@@ -452,9 +413,6 @@ if {[regexp {VIOLATED} $line]} {
     incr count
 }
 ```
-
----
-
 # Physical Design Tool Commands
 
 ```tcl
@@ -485,8 +443,6 @@ get_attribute $cell area
 ```tcl
 get_cells -filter "is_sequential==true"
 ```
-
----
 
 # Physical Design Tcl Scripts
 
@@ -543,8 +499,6 @@ foreach_in_collection port [get_ports *] {
 }
 ```
 
----
-
 # ECO Automation Scripts
 
 ## Generate ECO Tcl
@@ -574,8 +528,6 @@ foreach_in_collection net [get_nets *] {
 
 close $fp
 ```
-
----
 
 # Most Important Tcl Commands Used in PD
 
@@ -609,8 +561,6 @@ close $fp
 * all_fanout
 * all_connected
 
----
-
 # My Scripts
 
 1. Prime Numbers (2-100)
@@ -638,5 +588,3 @@ close $fp
 23. Count Registers
 24. List Macros
 25. List Dont-Touch Cells
-
----

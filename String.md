@@ -1,6 +1,6 @@
 # String
 
-# String Operators
+## String Operators
 
 ## Table of Contents
 

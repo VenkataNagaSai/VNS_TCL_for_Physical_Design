@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-## String Operators
+## [String Operators](#string-operators)
 
 - [1. String Append](#1-string-append)
 - [2. String Compare](#2-string-compare)
@@ -23,7 +23,9 @@
 
 ## [Special Characters in the String](#special-characters-in-the-string)
 
-## 1. String Append
+## String Operators
+
+### 1. String Append
 
 Appends string2 at the end of string1 (change is made in the parent variable, so we should not use $string1).
 
@@ -40,7 +42,7 @@ puts [append string1 $string2]
 I am an ASIC Physical DesignEngineer
 ```
 
-## 2. String Compare
+### 2. String Compare
 
 - If string1=string2 --> result is 0
 - If string1 comes alphabetically after string2 --> result is 1
@@ -88,7 +90,7 @@ puts $result
 1
 ```
 
-## 3. String First
+### 3. String First
 
 If string1 is in string2 --> then it will return the char index of the first occurence.
 
@@ -121,7 +123,7 @@ puts $result
 -1
 ```
 
-# 4. String Index
+### 4. String Index
 
 #### Example
 ```tcl
@@ -134,11 +136,12 @@ puts "The element at index 4 is [string index $string1 5]"
 P
 ```
 
-## 5. String Last
+### 5. String Last
 
 If string1 is in string2 --> then it will return the char index of the last occurence.
 
 If string1 is not in string2 --> then it will return -1.
+
 
 #### Example
 ```tcl
@@ -153,7 +156,6 @@ puts $result
 5
 ```
 
-
 #### Example
 ```tcl
 set string1 "ASIC Physical"
@@ -167,7 +169,7 @@ puts $result
 -1
 ```
 
-## 6. String Left Trim
+### 6. String Left Trim
 
 If will trim the reference character at the left end. By default, it will trim white spaces.
 
@@ -200,7 +202,7 @@ ASIC Physicalssss
 As we defined "s ". It will trimleft "s" and " " i.e "s" characters and white spaces if any.
 
 
-## 7. String Length
+### 7. String Length
 
 
 #### Example
@@ -214,7 +216,7 @@ puts [string length $string1]
 20
 ```
 
-## 8. String Match
+### 8. String Match
 
 If both the strings are same, then it will return 1, else it will return 0.
 
@@ -243,7 +245,7 @@ puts [string match $string1 $string2]
 0
 ```
 
-## 9. String Range
+### 9. String Range
 
 It will return the characters in the defined range, of string.
 
@@ -259,7 +261,7 @@ puts [string range $string1 3 7]
 C Phy
 ```
 
-## 10. String Reverse
+### 10. String Reverse
 
 It will reverse the characters in the defined string.
 
@@ -275,7 +277,7 @@ puts [string reverse $string1]
 ngiseD lacisyhP CISA
 ```
 
-## 11. String Right Trim
+### 11. String Right Trim
 
 If will trim the reference character at the right end. By default, it will trim white spaces.
 
@@ -291,7 +293,7 @@ puts [string trimright $string1 "s"]
 sss  ASIC Physical
 ```
 
-## 12. String Tolower
+### 12. String Tolower
 
 If will convert the string to lower case.
 
@@ -307,7 +309,7 @@ puts [string tolower $string1]
 asic physical
 ```
 
-## 13. String Toupper
+### 13. String Toupper
 
 If will convert the string to upper case.
 
@@ -323,7 +325,7 @@ puts [string toupper $string1]
 ASIC PHYSICAL
 ```
 
-## 14. String Trim
+### 14. String Trim
 
 If will trim the reference character at both left and right end. By default, it will trim white spaces.
 
@@ -339,7 +341,7 @@ puts [string trim $string1 "s"]
   ASIC Physical
 ```
 
-## 15. String wordend
+### 15. String wordend
 
 
 #### Example
@@ -353,7 +355,7 @@ puts [string wordend $string1 9]
 12
 ```
 
-## 16. String wordstart
+### 16. String wordstart
 
 
 #### Example

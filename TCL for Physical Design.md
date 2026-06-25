@@ -211,6 +211,17 @@ foreach cell $cell_list {
     puts $cell
 }
 ```
+### Procedure (Function)
+
+```tcl
+proc add {a b} {
+    return [expr {$a + $b}]
+}
+
+puts [add 10 20]
+```
+
+Used to build reusable utilities.
 
 ## Data Structure
 
@@ -289,18 +300,6 @@ lreverse $list
 ```tcl
 lsort -unique $list
 ```
-
-### Procedures (Functions)
-
-```tcl
-proc add {a b} {
-    return [expr {$a + $b}]
-}
-
-puts [add 10 20]
-```
-
-Used to build reusable utilities.
 
 ### Array 
 

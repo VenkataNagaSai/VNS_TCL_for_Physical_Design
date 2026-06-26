@@ -79,29 +79,29 @@ puts "Area = [expr {$width*$height}]"
 ``` tcl
 ==
 !=
-\>
-\<
-\>=
-\<=
+>
+<
+>=
+<=
 ```
 
 ### Logical
 
 ``` tcl
 &&
-\|\|
+||
 !
 ```
 
 ### Bitwise
 
 ``` tcl
-\& 
-\|
-\^
-\~
-\<\<
-\>\>
+& 
+|
+^
+~
+<<
+>>
 ```
 
 ### String operators
@@ -196,7 +196,8 @@ array set
 array get
 array names
 array exists
-array size unset
+array size
+array unset
 ```
 
 ## 8. Dictionaries
@@ -239,14 +240,14 @@ string match "*DFF*" $cell
 regexp
 regsub
 ```
-
 Very important for report parsing.
 
 ### Example
 
 ```tcl
-regexp {slack\s+(-?\d+\.\d+)} $line -> slack
+regexp {slack\s+(-?\d+\.\d+)} $line
 ```
+Gives slack
 
 ## 11. File Handling
 
@@ -447,7 +448,7 @@ get_lib_pins
 get_attribute
 set_attribute
 report_timing
-report_constraint
+report_constraints
 report_qor
 report_power
 report_clock
